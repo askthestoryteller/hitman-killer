@@ -5,3 +5,5 @@ This is a small utlity that will auto kill HITMAN as soon as it sees the 'Campai
 Please contact @askthestoryteller on discord for any issues.
 
 Find the compiled binaries here: https://drive.google.com/drive/folders/18TzWFuFvdMJl0h8yzenOOzoO3bReclOy?usp=sharing for now (They'll be uploaded on Github soon)
+
+P.S these binaries aren't super optimized so please excuse the big file size, will optimize in further releases.
