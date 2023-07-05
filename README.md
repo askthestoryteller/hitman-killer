@@ -5,3 +5,7 @@ This is a small utlity that will auto kill HITMAN as soon as it sees the 'Campai
 Please contact @askthestoryteller on discord for any issues.
 
 P.S these binaries aren't super optimized so please excuse the big file size, will optimize in further releases.
+
+Upcoming Features:
+ - Auto opens HITMAN after closing (add file picker to select the location of hitman3.exe)
+ - Audio? Visual Upgrades?
