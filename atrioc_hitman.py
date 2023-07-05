@@ -50,6 +50,7 @@ def clean_text(string):
 
 # Main Kill Loop
 def kill_check():
+    running_indicator.set("Script IS RUNNING!!")
     with mss.mss() as sct:
 
         ## Picks correct screen, and adjusts position of text based on monitor resolution
@@ -74,7 +75,7 @@ def kill_check():
 window = Tk()
 window.title("HITMAN AUTO TERMINATOR")
 window.iconbitmap("favicon.ico")
-window.geometry("400x400")
+window.geometry("400x520")
 sv_ttk.set_theme("dark")
         
 l = Label(window, text = "HITMAN AUTO TERMINATOR")
@@ -112,6 +113,15 @@ for option in options:
 
 button = Button(text="Start Auto-Kill", command=kill_check)
 button.pack(pady = (10,10))
+
+
+running_indicator = StringVar()
+running_indicator.set("SCRIPT IS NOT RUNNING BOOMER!!")
+l31 = Label(window, textvariable  = running_indicator)
+l31.config(font =("", 30), wraplength=400, anchor="center")
+l31.pack(pady = (10,10))
+
+
 
 l3 = Label(window, text = "developed with ♥ by atricord")
 l3.config(font =("", 12))
