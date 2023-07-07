@@ -71,7 +71,7 @@ def kill_check():
             os.system("taskkill.exe /IM hitman3.exe /F")
 
         
-    window.after(500, kill_check)
+    window.after(100, kill_check)
 
 
 # TKinter Init 
