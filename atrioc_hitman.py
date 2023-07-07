@@ -6,6 +6,7 @@ import numpy
 import pytesseract
 import re
 import os
+import subprocess
 from tkinter import *
 from tkinter.ttk import *
 from threading import Timer
@@ -56,6 +57,7 @@ def kill_check():
         ## Picks correct screen, and adjusts position of text based on monitor resolution
         i = options.index(monitor.get()) 
         mn = sct.monitors[i + 1]
+        print(sct.monitors)
         wid = int(screens[i].width)
         ratio = wid / 1920
         defaults = {'t':int(839 * ratio),'l':int(133 * ratio),'w':int(476 * ratio),'h':int(88 * ratio)}
@@ -65,8 +67,9 @@ def kill_check():
         text = pytesseract.image_to_string(im)
         extracted_string = clean_text(text).lower() 
 
-        if "campaignf" in extracted_string:
+        if "campaignf" in extracted_string or "killed" in extracted_string:
             os.system("taskkill.exe /IM hitman3.exe /F")
+
         
     window.after(500, kill_check)
 
@@ -74,7 +77,6 @@ def kill_check():
 # TKinter Init 
 window = Tk()
 window.title("HITMAN AUTO TERMINATOR")
-window.iconbitmap("favicon.ico")
 window.geometry("400x520")
 sv_ttk.set_theme("dark")
         
@@ -93,13 +95,11 @@ l21.config(font =("", 12))
 l21.pack(pady = (10,10))
 
 # Sets Monitor Options
-unsorted_screens = []
+screens = []
 options = []
 
 for m in get_monitors():
-    unsorted_screens.append(m)
-
-screens = sorted(unsorted_screens, key=lambda d: d.x) 
+    screens.append(m)
 
 for screen in screens:
     options.append(clean_text(screen.name) + "  |  "+ str(screen.width) + " x "+  str(screen.height))
